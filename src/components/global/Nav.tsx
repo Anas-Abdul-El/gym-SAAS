@@ -3,6 +3,7 @@ import { Dumbbell } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { LogInIcon, MoreVertical } from 'lucide-react';
 import { useState } from 'react';
+import Link from 'next/link';
 
 type Links = {
     name: string;
@@ -12,18 +13,18 @@ type Links = {
 
 const links: Links[] = [
     {
-        name: "Home",
-        href: "/",
-        id: 1
-    },
-    {
         name: "Features",
         href: "/features",
-        id: 2
+        id: 1
     },
     {
         name: "Pricing",
         href: "/pricing",
+        id: 2
+    },
+    {
+        name: "About",
+        href: "/about",
         id: 3
     },
     {
@@ -49,7 +50,7 @@ function Nav() {
                     <ul className='flex space-x-6 text-white/80'>
                         {
                             links.map(ele => (
-                                <li key={ele.id} className={` hover:text-white transition cursor-pointer ${path === ele.href ? 'text-white' : ''}`}>{ele.name}</li>
+                                <Link href={ele.href} key={ele.id} className={` hover:text-white transition cursor-pointer ${path === ele.href ? 'text-white' : ''}`}>{ele.name}</Link>
                             ))
                         }
                     </ul>
@@ -65,7 +66,7 @@ function Nav() {
                     <ul className='flex space-x-6 text-white/80 flex-col justify-center space-y-15'>
                         {
                             links.map(ele => (
-                                <li key={ele.id} className={` hover:text-white transition cursor-pointer ${path === ele.href ? 'text-white' : ''}`} onClick={() => setIsMenuOpen(false)}>{ele.name}</li>
+                                <Link href={ele.href} key={ele.id} className={` hover:text-white transition cursor-pointer ${path === ele.href ? 'text-white' : ''}`} onClick={() => setIsMenuOpen(false)}>{ele.name}</Link>
                             ))
                         }
                         <h1 className='text-white/80 capitalize'>Sign in</h1>

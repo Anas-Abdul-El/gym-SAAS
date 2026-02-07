@@ -2,6 +2,30 @@
 import { ArrowRight, Dumbbell, Users, TrendingUp } from 'lucide-react';
 import Image from 'next/image';
 
+type Feathers = {
+    icon: React.ElementType,
+    title: string,
+    description: string
+}
+
+const features: Array<Feathers> = [
+    {
+        icon: Users,
+        title: 'Member Management',
+        description: 'Track memberships, attendance, and progress all in one place'
+    },
+    {
+        icon: Dumbbell,
+        title: 'Class Scheduling',
+        description: 'Automated booking system for classes and personal training'
+    },
+    {
+        icon: TrendingUp,
+        title: 'Business Analytics',
+        description: 'Real-time insights to grow your fitness business faster'
+    }
+]
+
 export default function HomeWr() {
     return (
         <main className="relative z-10 text-white">
@@ -91,32 +115,18 @@ export default function HomeWr() {
             {/* Feature Cards */}
             <div className="max-w-7xl mx-auto px-6 pb-20">
                 <div className="grid md:grid-cols-3 gap-6">
-                    {[
-                        {
-                            icon: Users,
-                            title: 'Member Management',
-                            description: 'Track memberships, attendance, and progress all in one place'
-                        },
-                        {
-                            icon: Dumbbell,
-                            title: 'Class Scheduling',
-                            description: 'Automated booking system for classes and personal training'
-                        },
-                        {
-                            icon: TrendingUp,
-                            title: 'Business Analytics',
-                            description: 'Real-time insights to grow your fitness business faster'
-                        }
-                    ].map((feature, index) => (
-                        <div
-                            key={index}
-                            className="p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-white/10 transition-all group"
-                        >
-                            <feature.icon className="w-10 h-10 text-green-400 mb-4 group-hover:scale-110 transition-transform" />
-                            <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                            <p className="text-gray-400">{feature.description}</p>
-                        </div>
-                    ))}
+                    {
+                        features.map((feature, index) => (
+                            <div
+                                key={index}
+                                className="p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-white/10 transition-all group"
+                            >
+                                <feature.icon className="w-10 h-10 text-green-400 mb-4 group-hover:scale-110 transition-transform" />
+                                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                                <p className="text-gray-400">{feature.description}</p>
+                            </div>
+                        ))
+                    }
                 </div>
             </div>
         </main>
