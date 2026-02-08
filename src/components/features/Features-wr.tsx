@@ -136,7 +136,7 @@ function FeaturesWr() {
                         <span className="text-sm text-green-300">All-in-One Gym Management</span>
                     </div>
                     <div className='text-center h-fit'>
-                        <h1 className="text-5xl font-bold text-white">
+                        <h1 className="text-5xl lg:text-7xl font-bold text-white">
                             Powerful Features for
                             <span className="block bg-linear-to-r from-green-400 via-emerald-400 to-teal-400 bg-clip-text text-transparent"> Modern Gyms</span>
                         </h1>
