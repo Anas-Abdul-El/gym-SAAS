@@ -83,7 +83,7 @@ const questions = [
 function ContactWr() {
     return (
         <div className='w-full h-fit flex flex-col justify-end p-6 space-y-20 lg:w-9/10 mx-auto'>
-            <div className='flex flex-col justify-center items-center w-full h-fit space-y-6 mt-30'>
+            <div className='flex flex-col justify-center items-center w-full h-fit space-y-6 mt-30 text-center'>
                 <div className="h-fit w-fit inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 backdrop-blur-sm">
                     <MessageSquare className="w-4 h-4 text-green-400" />
                     <span className="text-sm text-green-300">We're Here to Help</span>
@@ -107,7 +107,7 @@ function ContactWr() {
                                 <h3 className="text-white text-2xl font-semibold">{ele.title}</h3>
                                 <p className="text-gray-400 h-7">{ele.description}</p>
                             </div>
-                            <p className={ele.iconColor}>{ele.contact}</p>
+                            <p className={ele.iconColor + " mb-3"}>{ele.contact}</p>
                         </div>
                     ))
                 }
