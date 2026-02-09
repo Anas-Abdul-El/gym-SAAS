@@ -171,7 +171,7 @@ function PricingWr() {
                 }
             </div>
 
-            <div className='bg-linear-to-r from-green-500/20 to-emerald-500/20 w-full rounded-2xl flex flex-col justify-center items-center text-center p-20 my-30 space-y-8'>
+            <div className='bg-linear-to-r from-green-500/20 to-emerald-500/20 w-full rounded-2xl flex flex-col justify-center items-center text-center p-20 my-30 space-y-8 md:w-8/10 mx-auto'>
                 <div className='w-full flex flex-col space-y-5'>
                     <h1 className=' capitalize text-white font-bold text-4xl md:text-5xl lg:6xl '>stil have questions?</h1>
                     <p className='text-gray-400'>Our team is here to help. Schedule a demo to see FitFlow Pro in action.</p>
