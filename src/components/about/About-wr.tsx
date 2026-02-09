@@ -176,7 +176,7 @@ function AboutWr() {
                                 alt={ele.name}
                                 width={500}
                                 height={500}
-                                className='rounded-xl'
+                                className='rounded-xl '
                             />
                             <div className='w-full h-fit flex text-center flex-col space-y-1'>
                                 <h3 className='text-white text-2xl font-semibold'>{ele.name}</h3>
