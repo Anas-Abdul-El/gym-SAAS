@@ -1,4 +1,4 @@
-import React from 'react'
+import { type contactSchemaType, contactSchema } from "../../../schemas/contact-schema"
 
 function ContactWr() {
     return (
