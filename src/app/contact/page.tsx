@@ -1,8 +1,11 @@
+"use client";
 import ContactWr from '@/components/contact/Contact-wr'
 
 function Page() {
     return (
-        <ContactWr />
+        <main className='w-full h-fit bg-gray-950'>
+            <ContactWr />
+        </main>
     )
 }
 
