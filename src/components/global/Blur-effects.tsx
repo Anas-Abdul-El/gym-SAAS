@@ -10,7 +10,7 @@ function BlurEffects() {
                     <div className="absolute top-1/3 right-1/4 w-lg h-lg bg-emerald-600/20 rounded-full blur-3xl"></div>
                     <div className="absolute bottom-0 left-1/2 w-md h-md bg-teal-600/20 rounded-full blur-3xl"></div>
                 </div>
-                <div className="absolute top-1/2 left-150 w-96 h-96 bg-cyan-600/30 rounded-full blur-3xl"></div>
+                <div className="absolute top-1/4 left-170 w-96 h-96 bg-cyan-600/30 rounded-full blur-3xl"></div>
             </div>
         </>
     )
