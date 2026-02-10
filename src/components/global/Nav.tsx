@@ -57,7 +57,7 @@ function Nav() {
                 </div>
                 <div className=' items-center space-x-2 cursor-pointer hover:text-white transition hidden sm:flex'>
                     <LogInIcon className='text-green-400' size={20} />
-                    <h1 className='text-white/80 capitalize'>Sign in</h1>
+                    <Link href={"/auth/signIn"} className='text-white/80 capitalize'>Sign in</Link>
                 </div>
             </nav>
             <MoreVertical className=' block sm:hidden text-white cursor-pointer bg-gray-950/50 fixed top-4 right-4 z-70' size={24} onClick={() => setIsMenuOpen(!isMenuOpen)} />
