@@ -1,40 +1,28 @@
 import z from "zod";
 
 export const contactSchema = z.object({
-    name: z.string({
-        message: "name is required"
-    }).min(1, {
+    name: z.string().min(1, {
         message: "Name is required"
     }),
 
-    email: z.string({
-        message: "email is required"
-    }).email({
+    email: z.string().email({
         message: "Not an email address exp"
     }),
 
-    company: z.string({
-        message: "company is required"
-    }).min(1, {
-        message: "company is required"
+    company: z.string().min(1, {
+        message: "Company is required"
     }),
 
-    phone: z.string({
-        message: "phone is required"
-    }).min(1, {
-        message: "phone is required"
+    phone: z.string().min(1, {
+        message: "Phone is required"
     }),
 
-    subject: z.string({
-        message: "subject is requird"
-    }).min(1, {
-        message: "subject is required"
+    subject: z.string().min(1, {
+        message: "Subject is required"
     }),
 
-    message: z.string({
-        message: "msg is requird"
-    }).min(1, {
-        message: "msg is required"
+    message: z.string().min(1, {
+        message: "Msg is required"
     }),
 })
 

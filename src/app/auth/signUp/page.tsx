@@ -1,8 +1,11 @@
+import SignUpWr from '@/components/auth/SignUp/SignUp-wr'
 import React from 'react'
 
 function page() {
     return (
-        <div>page</div>
+        <main className='w-screen h-fit bg-gray-950'>
+            <SignUpWr />
+        </main>
     )
 }
 

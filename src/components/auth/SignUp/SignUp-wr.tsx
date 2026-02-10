@@ -2,16 +2,17 @@
 import { Button } from '@/components/ui/button'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { signInSchema, type SignInSchemaType } from '../../../../schemas/signIn-schema'
+import { type SignUpSchemaType, signUpSchema } from '../../../../schemas/signUp-schema'
 import { Input } from '@/components/ui/input'
 import {
     Mail,
     Lock,
     Eye,
     EyeOff,
-    ArrowRight,
     Chrome,
-    Github
+    Github,
+    User,
+    Building
 } from 'lucide-react'
 import {
     Form,
@@ -21,24 +22,62 @@ import {
     FormLabel,
     FormMessage,
 } from '@/components/ui/form'
-import { useState } from 'react'
+import { ReactElement, useState } from 'react'
 import Link from 'next/link'
 
+type Input = {
+    label: string,
+    name: "name" | "email" | "company" | "password",
+    placeholder: string,
+    type: string,
+    position: string
+    icon: React.ElementType,
+}
 
-function SignInWr() {
+const inputs: Array<Input> = [
+    {
+        label: "full name",
+        name: "name",
+        placeholder: "John Doe",
+        type: "text",
+        icon: User,
+        position: "top-86"
+    },
+    {
+        label: "email address",
+        name: "email",
+        placeholder: "you@example.com",
+        type: "email",
+        icon: Mail,
+        position: "top-109"
+    },
+    {
+        label: "company name",
+        name: "company",
+        placeholder: "Your Gym Name",
+        type: "text",
+        icon: Building,
+        position: "top-132"
+    },
+]
+
+
+function SignUpWr() {
 
     const [error, setError] = useState()
     const [view, setView] = useState(false)
 
-    const form = useForm<SignInSchemaType>({
+    const form = useForm<SignUpSchemaType>({
         defaultValues: {
             email: "",
-            password: ""
+            password: "",
+            name: "",
+            company: "",
         },
-        resolver: zodResolver(signInSchema)
+        resolver: zodResolver(signUpSchema)
     })
 
-    const submit = (data: SignInSchemaType) => {
+    const submit = (data: SignUpSchemaType) => {
         // TODO : Server Action
 
     }
@@ -46,7 +85,7 @@ function SignInWr() {
     const { control, handleSubmit } = form
 
     return (
-        <div className='w-full h-full flex flex-col items-center p-4 sm:p-0'>
+        <div className='w-full h-full flex flex-col items-center'>
             <div className='flex flex-col sm:w-110 w-full bg-white/5 backdrop-blur-xl border border-white/10 p-8 md:p-10 shadow-2xl rounded-2xl space-y-7 my-30 '>
                 <div className='flex flex-col justify-center items-center space-y-3'>
                     <h1 className='text-white font-bold text-4xl'>Welcome Back</h1>
@@ -77,28 +116,33 @@ function SignInWr() {
                         className='text-white flex flex-col'
                     >
 
-                        <FormField
-                            control={control}
-                            name='email'
-                            render={({ field }) => (
-                                <FormItem className='h-23 flex flex-col'>
-                                    <div className=' flex justify-between items-end w-full h-5'>
-                                        <FormLabel>Email Address</FormLabel>
-                                        <FormMessage />
-                                    </div>
-                                    <Mail size={21} className='absolute top-84 left-11 sm:top-86 sm:left-13 text-gray-500' />
-                                    <FormControl>
-                                        <Input
-                                            placeholder='example@gmail.com'
-                                            autoComplete='email'
-                                            type='email'
-                                            className='pl-12 pr-4 py-5 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50 transition-all'
-                                            {...field}
-                                        />
-                                    </FormControl>
-                                </FormItem>
-                            )}
-                        />
+                        {
+                            inputs.map((ele, id) => (
+                                <FormField
+                                    key={id}
+                                    name={ele.name}
+                                    control={control}
+                                    render={({ field }) => (
+                                        <FormItem className='h-23 flex flex-col'>
+                                            <div className=' flex justify-between items-end w-full h-5'>
+                                                <FormLabel>{ele.label}</FormLabel>
+                                                <FormMessage />
+                                            </div>
+                                            <ele.icon size={21} className={`absolute left-13 text-gray-500 ${ele.position}`} />
+                                            <FormControl>
+                                                <Input
+                                                    placeholder={ele.placeholder}
+                                                    type={ele.type}
+                                                    autoComplete='password'
+                                                    className='pl-12 pr-4 py-5 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50 transition-all'
+                                                    {...field}
+                                                />
+                                            </FormControl>
+                                        </FormItem>
+                                    )}
+                                />
+                            ))
+                        }
 
                         <FormField
                             name='password'
@@ -109,12 +153,12 @@ function SignInWr() {
                                         <FormLabel>Password</FormLabel>
                                         <FormMessage />
                                     </div>
-                                    <Lock size={21} className='absolute top-107 left-11 sm:top-109 sm:left-13 text-gray-500' />
+                                    <Lock size={21} className='absolute top-155 left-13 text-gray-500' />
                                     {
                                         view ? (
-                                            <EyeOff size={21} className='absolute top-107 left-81 sm:top-109 sm:left-91 text-gray-500 cursor-pointer' onClick={() => setView(false)} />
+                                            <EyeOff size={21} className='absolute top-155 left-91 text-gray-500 cursor-pointer' onClick={() => setView(false)} />
                                         ) : (
-                                            <Eye size={21} className='absolute top-107 left-81 sm:top-109 sm:left-91 text-gray-500 cursor-pointer' onClick={() => setView(true)} />
+                                            <Eye size={21} className='absolute top-155 left-91 text-gray-500 cursor-pointer' onClick={() => setView(true)} />
                                         )
                                     }
                                     <FormControl>
@@ -139,11 +183,11 @@ function SignInWr() {
 
                 <div className='sm:w-4/5 mx-auto flex space-x-1'>
                     <p className='text-gray-400'>Don't have an account? </p>
-                    <Link className='text-green-400 font-semibold' href={"/auth/signUp"}>Sign up for free</Link>
+                    <Link className='text-green-400 font-semibold' href={"/auth/signIn"}>Sign up for free</Link>
                 </div>
             </div>
         </div>
     )
 }
 
-export default SignInWr
+export default SignUpWr
