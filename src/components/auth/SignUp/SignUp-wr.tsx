@@ -22,10 +22,12 @@ import {
     FormLabel,
     FormMessage,
 } from '@/components/ui/form'
-import { ReactElement, useState } from 'react'
+import { ReactElement, useState, useTransition } from 'react'
 import Link from 'next/link'
 import { githubSignIn } from '../../../../server-actions/signInToGithup'
 import { googleSignIn } from '../../../../server-actions/signInToGoogle'
+import { signUpAction } from '../../../../server-actions/signUpAction'
+import { redirect } from 'next/navigation'
 
 type Input = {
     label: string,
@@ -66,7 +68,8 @@ const inputs: Array<Input> = [
 
 function SignUpWr() {
 
-    const [error, setError] = useState()
+    const [isPending, setTransition] = useTransition()
+    const [error, setError] = useState<string>("")
     const [view, setView] = useState(false)
 
     const form = useForm<SignUpSchemaType>({
@@ -88,7 +91,16 @@ function SignUpWr() {
     }
 
     const submit = (data: SignUpSchemaType) => {
-        // TODO : Server Action
+
+        setTransition(() => {
+            signUpAction(data)
+                .then(res => {
+                    if (res?.error) {
+                        setError(res.error)
+                    }
+                    redirect("/auth/signIn")
+                })
+        })
 
     }
 
@@ -184,10 +196,13 @@ function SignUpWr() {
                             )}
                         />
 
-                        <Button type='submit' className='flex justify-center items-center py-5 bg-linear-to-r shadow-lg shadow-green-500/50 group from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 rounded-lg transition-all my-5'>
+                        <Button
+                            disabled={isPending}
+                            type='submit'
+                            className='flex justify-center items-center py-5 bg-linear-to-r shadow-lg shadow-green-500/50 group from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 rounded-lg transition-all my-5'>
                             <p className='text-xl'>Sign In</p>
                         </Button>
-
+                        <p>{error}</p>
                     </form>
                 </Form>
 

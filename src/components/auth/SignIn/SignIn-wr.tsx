@@ -4,6 +4,11 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { signInSchema, type SignInSchemaType } from '../../../../schemas/signIn-schema'
 import { Input } from '@/components/ui/input'
+import { useState, useTransition } from 'react'
+import Link from 'next/link'
+import { githubSignIn } from '../../../../server-actions/signInToGithup'
+import { googleSignIn } from '../../../../server-actions/signInToGoogle'
+import { signInAction } from '../../../../server-actions/signInAction'
 import {
     Mail,
     Lock,
@@ -21,15 +26,12 @@ import {
     FormLabel,
     FormMessage,
 } from '@/components/ui/form'
-import { useState } from 'react'
-import Link from 'next/link'
-import { githubSignIn } from '../../../../server-actions/signInToGithup'
-import { googleSignIn } from '../../../../server-actions/signInToGoogle'
 
 
 function SignInWr() {
 
-    const [error, setError] = useState()
+    const [isPending, setTransition] = useTransition()
+    const [error, setError] = useState<string>("")
     const [view, setView] = useState(false)
 
     const form = useForm<SignInSchemaType>({
@@ -49,7 +51,16 @@ function SignInWr() {
     }
 
     const submit = (data: SignInSchemaType) => {
-        // TODO : Server Action
+
+        setTransition(() => {
+            signInAction(data)
+                .then(res => {
+                    if (res?.error) {
+                        setError(res.error)
+
+                    }
+                })
+        })
 
     }
 
@@ -140,7 +151,10 @@ function SignInWr() {
                             )}
                         />
 
-                        <Button type='submit' className='flex justify-center items-center py-5 bg-linear-to-r shadow-lg shadow-green-500/50 group from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 rounded-lg transition-all my-5'>
+                        <Button
+                            disabled={isPending}
+                            type='submit'
+                            className='flex justify-center items-center py-5 bg-linear-to-r shadow-lg shadow-green-500/50 group from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 rounded-lg transition-all my-5'>
                             <p className='text-xl'>Sign In</p>
                         </Button>
 

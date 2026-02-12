@@ -4,6 +4,8 @@ import { usePathname } from 'next/navigation';
 import { LogInIcon, MoreVertical } from 'lucide-react';
 import { useState } from 'react';
 import Link from 'next/link';
+import { Session } from 'next-auth';
+import { SignOutAction } from '../../../server-actions/signOutAction';
 
 type Links = {
     name: string;
@@ -34,10 +36,16 @@ const links: Links[] = [
     }
 ]
 
-function Nav() {
+function Nav({
+    user,
+}: {
+    user: Session | null
+}) {
 
     const path = usePathname();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const isUserLogin = !!user
 
     return (
         <>
@@ -57,7 +65,13 @@ function Nav() {
                 </div>
                 <div className=' items-center space-x-2 cursor-pointer hover:text-white transition hidden sm:flex md:w-35'>
                     <LogInIcon className='text-green-400' size={20} />
-                    <Link href={"/auth/signIn"} className='text-white/80 capitalize'>Sign in</Link>
+                    {
+                        isUserLogin ? (
+                            <p onClick={SignOutAction} className='text-white/80 capitalize'>Sign out</p>
+                        ) : (
+                            <Link href={"/auth/signIn"} className='text-white/80 capitalize'>Sign in</Link>
+                        )
+                    }
                 </div>
             </nav>
             <MoreVertical className=' block sm:hidden text-white cursor-pointer bg-gray-950/50 fixed top-4 right-4 z-70' size={24} onClick={() => setIsMenuOpen(!isMenuOpen)} />
@@ -69,7 +83,13 @@ function Nav() {
                                 <Link href={ele.href} key={ele.id} className={` hover:text-white transition cursor-pointer ${path === ele.href ? 'text-white' : ''}`} onClick={() => setIsMenuOpen(false)}>{ele.name}</Link>
                             ))
                         }
-                        <Link href={"/auth/signIn"} className='text-white/80 capitalize'>Sign in</Link>
+                        {
+                            isUserLogin ? (
+                                <p onClick={SignOutAction} className='text-white/80 capitalize'>Sign out</p>
+                            ) : (
+                                <Link href={"/auth/signIn"} className='text-white/80 capitalize'>Sign in</Link>
+                            )
+                        }
                     </ul>
                 </div>
             </div>
