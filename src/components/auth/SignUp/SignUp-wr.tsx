@@ -175,6 +175,13 @@ function SignUpWr() {
                                     </div>
                                     <div className='relative w-full'>
                                         <Lock size={21} className='absolute top-3 left-3 text-gray-500' />
+                                        {
+                                            view ? (
+                                                <EyeOff size={21} className='absolute bottom-3 left-82 text-gray-500 cursor-pointer' onClick={() => setView(false)} />
+                                            ) : (
+                                                <Eye size={21} className='absolute bottom-3 left-82 text-gray-500 cursor-pointer' onClick={() => setView(true)} />
+                                            )
+                                        }
                                         <FormControl>
                                             <Input
                                                 placeholder='Enter your password'
@@ -184,13 +191,6 @@ function SignUpWr() {
                                                 {...field}
                                             />
                                         </FormControl>
-                                        {
-                                            view ? (
-                                                <EyeOff size={21} className='absolute bottom-3 left-82 text-gray-500 cursor-pointer' onClick={() => setView(false)} />
-                                            ) : (
-                                                <Eye size={21} className='absolute bottom-3 left-82 text-gray-500 cursor-pointer' onClick={() => setView(true)} />
-                                            )
-                                        }
                                     </div>
                                 </FormItem>
                             )}
