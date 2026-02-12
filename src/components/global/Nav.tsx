@@ -47,6 +47,10 @@ function Nav({
 
     const isUserLogin = !!user
 
+    const handle = () => {
+        SignOutAction()
+        setIsMenuOpen(false)
+    }
     return (
         <>
             <nav className='fixed top-0 left-0 w-screen h-15 bg-gray-950/50 border-b border-white/10 backdrop-blur-xl flex justify-between items-center z-50 px-10  lg:px-30'>
@@ -74,20 +78,29 @@ function Nav({
                     }
                 </div>
             </nav>
-            <MoreVertical className=' block sm:hidden text-white cursor-pointer bg-gray-950/50 fixed top-4 right-4 z-70' size={24} onClick={() => setIsMenuOpen(!isMenuOpen)} />
+            <MoreVertical className=' block sm:hidden text-white cursor-pointer fixed top-4 right-4 z-70 bg-transparent' size={24} onClick={() => setIsMenuOpen(!isMenuOpen)} />
             <div className='block sm:hidden w-full h-full fixed top-0 left-0 z-60 bg-gray-950/50 backdrop-blur-xl transition-all duration-300 ease-in-out' style={{ clipPath: isMenuOpen ? 'circle(150% at 90% -10%)' : 'circle(0% at 90% -10%)' }}>
                 <div className='flex flex-col justify-start h-full mt-15 p-10 text-xl'>
                     <ul className='flex space-x-6 text-white/80 flex-col justify-center space-y-15'>
                         {
                             links.map(ele => (
-                                <Link href={ele.href} key={ele.id} className={` hover:text-white transition cursor-pointer ${path === ele.href ? 'text-white' : ''}`} onClick={() => setIsMenuOpen(false)}>{ele.name}</Link>
+                                <Link
+                                    href={ele.href}
+                                    key={ele.id}
+                                    onClick={() => setIsMenuOpen(false)}
+                                    className={` hover:text-white transition cursor-pointer ${path === ele.href ? 'text-white' : ''}`}
+                                >{ele.name}</Link>
                             ))
                         }
                         {
                             isUserLogin ? (
-                                <p onClick={SignOutAction} className='text-white/80 capitalize'>Sign out</p>
+                                <p onClick={handle} className='text-white/80 capitalize'>Sign out</p>
                             ) : (
-                                <Link href={"/auth/signIn"} className='text-white/80 capitalize'>Sign in</Link>
+                                <Link
+                                    onClick={() => setIsMenuOpen(false)}
+                                    href={"/auth/signIn"}
+                                    className='text-white/80 capitalize'
+                                >Sign in</Link>
                             )
                         }
                     </ul>
