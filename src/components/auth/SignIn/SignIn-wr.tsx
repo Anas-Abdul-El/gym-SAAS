@@ -24,6 +24,7 @@ import {
 import { useState } from 'react'
 import Link from 'next/link'
 import { githubSignIn } from '../../../../server-actions/signInToGithup'
+import { googleSignIn } from '../../../../server-actions/signInToGoogle'
 
 
 function SignInWr() {
@@ -43,6 +44,10 @@ function SignInWr() {
         githubSignIn()
     }
 
+    const handleGoogle = () => {
+        googleSignIn()
+    }
+
     const submit = (data: SignInSchemaType) => {
         // TODO : Server Action
 
@@ -58,7 +63,7 @@ function SignInWr() {
                     <p className='text-gray-400'>start your free trial with FitFlow Pro</p>
                 </div>
                 <div className='flex flex-col space-y-2 h-fit'>
-                    <Button className='bg-white/5 border-2 border-white/9 hover:bg-white/10'>
+                    <Button onClick={handleGoogle} className='bg-white/5 border-2 border-white/9 hover:bg-white/10'>
                         <Chrome size={24} className='' />
                         <p> Continue with Google</p>
                     </Button>
