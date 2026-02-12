@@ -24,6 +24,8 @@ import {
 } from '@/components/ui/form'
 import { ReactElement, useState } from 'react'
 import Link from 'next/link'
+import { githubSignIn } from '../../../../server-actions/signInToGithup'
+import { googleSignIn } from '../../../../server-actions/signInToGoogle'
 
 type Input = {
     label: string,
@@ -77,6 +79,14 @@ function SignUpWr() {
         resolver: zodResolver(signUpSchema)
     })
 
+    const handleGithub = () => {
+        githubSignIn()
+    }
+
+    const handleGoogle = () => {
+        googleSignIn()
+    }
+
     const submit = (data: SignUpSchemaType) => {
         // TODO : Server Action
 
@@ -92,11 +102,11 @@ function SignUpWr() {
                     <p className='text-gray-400'>start your free trial with FitFlow Pro</p>
                 </div>
                 <div className='flex flex-col space-y-2 h-fit'>
-                    <Button className='bg-white/5 border-2 border-white/9 hover:bg-white/10'>
+                    <Button onClick={handleGoogle} className='bg-white/5 border-2 border-white/9 hover:bg-white/10'>
                         <Chrome size={24} className='' />
                         <p> Continue with Google</p>
                     </Button>
-                    <Button className='bg-white/5 border-2 border-white/9 hover:bg-white/10'>
+                    <Button onClick={handleGithub} className='bg-white/5 border-2 border-white/9 hover:bg-white/10'>
                         <Github />
                         <p> Continue with Github</p>
                     </Button>
