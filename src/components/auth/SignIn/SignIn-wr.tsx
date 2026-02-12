@@ -85,7 +85,7 @@ function SignInWr() {
                 </div>
                 <div className='w-full my-4'>
                     <div className='bg-white/10 w-full h-px'></div>
-                    <div className='bg-black w-fit px-3 relative -top-3 left-25'>
+                    <div className='bg-black w-fit px-3 relative -top-3 mx-auto'>
                         <p className='text-gray-400 text-sm'>Or continue with email</p>
                     </div>
                 </div>
