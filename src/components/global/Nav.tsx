@@ -3,9 +3,9 @@ import { Dumbbell } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { LogInIcon, MoreVertical } from 'lucide-react';
 import { useState } from 'react';
-import Link from 'next/link';
 import { Session } from 'next-auth';
 import { SignOutAction } from '../../../server-actions/signOutAction';
+import Link from 'next/link';
 
 type Links = {
     name: string;
