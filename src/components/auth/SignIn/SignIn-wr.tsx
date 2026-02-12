@@ -23,6 +23,7 @@ import {
 } from '@/components/ui/form'
 import { useState } from 'react'
 import Link from 'next/link'
+import { githubSignIn } from '../../../../server-actions/signInToGithup'
 
 
 function SignInWr() {
@@ -37,6 +38,10 @@ function SignInWr() {
         },
         resolver: zodResolver(signInSchema)
     })
+
+    const handleGithub = () => {
+        githubSignIn()
+    }
 
     const submit = (data: SignInSchemaType) => {
         // TODO : Server Action
@@ -57,7 +62,7 @@ function SignInWr() {
                         <Chrome size={24} className='' />
                         <p> Continue with Google</p>
                     </Button>
-                    <Button className='bg-white/5 border-2 border-white/9 hover:bg-white/10'>
+                    <Button onClick={handleGithub} className='bg-white/5 border-2 border-white/9 hover:bg-white/10'>
                         <Github />
                         <p> Continue with Github</p>
                     </Button>
