@@ -107,16 +107,18 @@ function SignInWr() {
                                         <FormLabel>Email Address</FormLabel>
                                         <FormMessage />
                                     </div>
-                                    <Mail size={21} className='absolute top-84 left-11 sm:top-86 sm:left-13 text-gray-500' />
-                                    <FormControl>
-                                        <Input
-                                            placeholder='example@gmail.com'
-                                            autoComplete='email'
-                                            type='email'
-                                            className='pl-12 pr-4 py-5 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50 transition-all'
-                                            {...field}
-                                        />
-                                    </FormControl>
+                                    <div className='w-full relative'>
+                                        <Mail size={21} className='absolute top-3 left-3 text-gray-500 ' />
+                                        <FormControl>
+                                            <Input
+                                                placeholder='example@gmail.com'
+                                                autoComplete='email'
+                                                type='email'
+                                                className=' pl-12 pr-4 py-5 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50 transition-all'
+                                                {...field}
+                                            />
+                                        </FormControl>
+                                    </div>
                                 </FormItem>
                             )}
                         />
@@ -130,23 +132,25 @@ function SignInWr() {
                                         <FormLabel>Password</FormLabel>
                                         <FormMessage />
                                     </div>
-                                    <Lock size={21} className='absolute top-107 left-11 sm:top-109 sm:left-13 text-gray-500' />
-                                    {
-                                        view ? (
-                                            <EyeOff size={21} className='absolute top-107 left-81 sm:top-109 sm:left-91 text-gray-500 cursor-pointer' onClick={() => setView(false)} />
-                                        ) : (
-                                            <Eye size={21} className='absolute top-107 left-81 sm:top-109 sm:left-91 text-gray-500 cursor-pointer' onClick={() => setView(true)} />
-                                        )
-                                    }
-                                    <FormControl>
-                                        <Input
-                                            placeholder='Enter your password'
-                                            type={view ? "text" : "password"}
-                                            autoComplete='password'
-                                            className='pl-12 pr-4 py-5 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50 transition-all'
-                                            {...field}
-                                        />
-                                    </FormControl>
+                                    <div className='w-full relative'>
+                                        <Lock size={21} className=' text-gray-500 absolute top-3 left-3' />
+                                        <FormControl>
+                                            <Input
+                                                placeholder='Enter your password'
+                                                type={view ? "text" : "password"}
+                                                autoComplete='password'
+                                                className='pl-12 pr-4 py-5 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50 transition-all'
+                                                {...field}
+                                            />
+                                        </FormControl>
+                                        {
+                                            view ? (
+                                                <EyeOff size={21} className=' absolute bottom-3 left-82 text-gray-500 cursor-pointer' onClick={() => setView(false)} />
+                                            ) : (
+                                                <Eye size={21} className='absolute bottom-3 left-82 text-gray-500 cursor-pointer' onClick={() => setView(true)} />
+                                            )
+                                        }
+                                    </div>
                                 </FormItem>
                             )}
                         />

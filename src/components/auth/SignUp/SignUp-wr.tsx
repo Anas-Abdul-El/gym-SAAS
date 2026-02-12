@@ -34,7 +34,6 @@ type Input = {
     name: "name" | "email" | "company" | "password",
     placeholder: string,
     type: string,
-    position: string
     icon: React.ElementType,
 }
 
@@ -45,7 +44,6 @@ const inputs: Array<Input> = [
         placeholder: "John Doe",
         type: "text",
         icon: User,
-        position: "top-86"
     },
     {
         label: "email address",
@@ -53,7 +51,6 @@ const inputs: Array<Input> = [
         placeholder: "you@example.com",
         type: "email",
         icon: Mail,
-        position: "top-109"
     },
     {
         label: "company name",
@@ -61,7 +58,6 @@ const inputs: Array<Input> = [
         placeholder: "Your Gym Name",
         type: "text",
         icon: Building,
-        position: "top-132"
     },
 ]
 
@@ -150,16 +146,18 @@ function SignUpWr() {
                                                 <FormLabel>{ele.label}</FormLabel>
                                                 <FormMessage />
                                             </div>
-                                            <ele.icon size={21} className={`absolute left-13 text-gray-500 ${ele.position}`} />
-                                            <FormControl>
-                                                <Input
-                                                    placeholder={ele.placeholder}
-                                                    type={ele.type}
-                                                    autoComplete='password'
-                                                    className='pl-12 pr-4 py-5 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50 transition-all'
-                                                    {...field}
-                                                />
-                                            </FormControl>
+                                            <div className='relative w-full'>
+                                                <ele.icon size={21} className={`absolute  text-gray-500 top-3 left-3`} />
+                                                <FormControl>
+                                                    <Input
+                                                        placeholder={ele.placeholder}
+                                                        type={ele.type}
+                                                        autoComplete='password'
+                                                        className='pl-12 pr-4 py-5 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50 transition-all'
+                                                        {...field}
+                                                    />
+                                                </FormControl>
+                                            </div>
                                         </FormItem>
                                     )}
                                 />
@@ -175,23 +173,25 @@ function SignUpWr() {
                                         <FormLabel>Password</FormLabel>
                                         <FormMessage />
                                     </div>
-                                    <Lock size={21} className='absolute top-155 left-13 text-gray-500' />
-                                    {
-                                        view ? (
-                                            <EyeOff size={21} className='absolute top-155 left-91 text-gray-500 cursor-pointer' onClick={() => setView(false)} />
-                                        ) : (
-                                            <Eye size={21} className='absolute top-155 left-91 text-gray-500 cursor-pointer' onClick={() => setView(true)} />
-                                        )
-                                    }
-                                    <FormControl>
-                                        <Input
-                                            placeholder='Enter your password'
-                                            type={view ? "text" : "password"}
-                                            autoComplete='password'
-                                            className='pl-12 pr-4 py-5 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50 transition-all'
-                                            {...field}
-                                        />
-                                    </FormControl>
+                                    <div className='relative w-full'>
+                                        <Lock size={21} className='absolute top-3 left-3 text-gray-500' />
+                                        <FormControl>
+                                            <Input
+                                                placeholder='Enter your password'
+                                                type={view ? "text" : "password"}
+                                                autoComplete='password'
+                                                className='pl-12 pr-4 py-5 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50 transition-all'
+                                                {...field}
+                                            />
+                                        </FormControl>
+                                        {
+                                            view ? (
+                                                <EyeOff size={21} className='absolute bottom-3 left-82 text-gray-500 cursor-pointer' onClick={() => setView(false)} />
+                                            ) : (
+                                                <Eye size={21} className='absolute bottom-3 left-82 text-gray-500 cursor-pointer' onClick={() => setView(true)} />
+                                            )
+                                        }
+                                    </div>
                                 </FormItem>
                             )}
                         />
