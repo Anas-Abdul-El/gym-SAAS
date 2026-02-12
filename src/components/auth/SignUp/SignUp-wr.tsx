@@ -103,7 +103,7 @@ function SignUpWr() {
     const { control, handleSubmit } = form
 
     return (
-        <div className='w-full h-full flex flex-col items-center'>
+        <div className='w-full h-full flex flex-col items-center p-4 sm:p-0'>
             <div className='flex flex-col sm:w-110 w-full bg-white/5 backdrop-blur-xl border border-white/10 p-8 md:p-10 shadow-2xl rounded-2xl space-y-7 my-30 '>
                 <div className='flex flex-col justify-center items-center space-y-3'>
                     <h1 className='text-white font-bold text-4xl'>Welcome Back</h1>
@@ -177,9 +177,9 @@ function SignUpWr() {
                                         <Lock size={21} className='absolute top-3 left-3 text-gray-500' />
                                         {
                                             view ? (
-                                                <EyeOff size={21} className='absolute bottom-3 left-82 text-gray-500 cursor-pointer' onClick={() => setView(false)} />
+                                                <EyeOff size={21} className='absolute bottom-3 left-8/9 text-gray-500 cursor-pointer' onClick={() => setView(false)} />
                                             ) : (
-                                                <Eye size={21} className='absolute bottom-3 left-82 text-gray-500 cursor-pointer' onClick={() => setView(true)} />
+                                                <Eye size={21} className='absolute bottom-3 left-8/9 text-gray-500 cursor-pointer' onClick={() => setView(true)} />
                                             )
                                         }
                                         <FormControl>
