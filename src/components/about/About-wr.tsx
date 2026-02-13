@@ -1,6 +1,8 @@
+"use client";
 import { Users, Target, Award, Heart, Zap, Shield } from 'lucide-react'
 import Image from 'next/image'
 import { Button } from '../ui/button';
+import { redirect } from 'next/navigation';
 
 const squares = [
     {
@@ -192,10 +194,15 @@ function AboutWr() {
                     <p className='text-gray-400'>Be part of the fitness revolution. Whether you're a gym owner or looking to join our team, we'd love to hear from you.</p>
                 </div>
                 <div className='w-full flex flex-col md:flex-row gap-5 justify-center items-center h-fit'>
-                    <Button className=' capitalize px-8 py-6 bg-linear-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 shadow-lg shadow-green-500/50'>
+                    <Button onClick={() => redirect("/project")}
+                        className=' capitalize px-8 py-6 bg-linear-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 shadow-lg shadow-green-500/50'
+                    >
                         <p>start free trail</p>
                     </Button>
-                    <Button className=' capitalize text-white px-8 py-6 border border-[rgb(255,255,255,0.3)] bg-[rgb(255,255,255,0.1)] hover:bg-[rgb(255,255,255,0.2)]'>
+                    <Button
+                        onClick={() => redirect("/project")}
+                        className=' capitalize text-white px-8 py-6 border border-[rgb(255,255,255,0.3)] bg-[rgb(255,255,255,0.1)] hover:bg-[rgb(255,255,255,0.2)]'
+                    >
                         <p>we're hiring</p>
                     </Button>
                 </div>

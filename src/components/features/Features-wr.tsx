@@ -1,3 +1,4 @@
+"use client"
 import {
     Users,
     Calendar,
@@ -13,6 +14,7 @@ import {
     TrendingUp
 } from 'lucide-react';
 import { Button } from '../ui/button';
+import { redirect } from 'next/navigation';
 
 
 const features = [
@@ -169,7 +171,11 @@ function FeaturesWr() {
                 <div className='w-9/10 flex justify-center items-center  space-y-6 flex-col from-emerald-500/20 to-green-500/20 bg-linear-to-r rounded-2xl p-7 py-10 mb-10'>
                     <h1 className='w-9/10 text-center text-white text-3xl font-bold'>Ready to Transform Your Gym?</h1>
                     <p className='w-9/10 text-center text-gray-400 '>Join 10,000+ gyms already using FitFlow Pro to streamline operations and grow their business.</p>
-                    <Button className="w-8/10 sm:w-3/10 group px-8 py-7 bg-linear-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 rounded-lg transition-all flex items-center justify-center gap-2 shadow-lg shadow-green-500/50">
+                    <Button
+                        className="w-8/10 sm:w-3/10 group px-8 py-7 bg-linear-to-r from-green-600 to-emerald-600 hover:from-green-700
+                         hover:to-emerald-700 rounded-lg transition-all flex items-center justify-center gap-2 shadow-lg shadow-green-500/50"
+                        onClick={() => redirect("/project")}
+                    >
                         Start Now
                     </Button>
                 </div>

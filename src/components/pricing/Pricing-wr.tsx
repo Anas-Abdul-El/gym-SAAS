@@ -1,6 +1,7 @@
+"use client"
 import { ArrowRight, Zap, Check, X } from 'lucide-react'
-import React from 'react'
 import { Button } from '../ui/button'
+import { redirect } from 'next/navigation';
 
 const plans = [
     {
@@ -177,10 +178,16 @@ function PricingWr() {
                     <p className='text-gray-400'>Our team is here to help. Schedule a demo to see FitFlow Pro in action.</p>
                 </div>
                 <div className='w-full flex flex-col md:flex-row gap-5 justify-center items-center h-fit'>
-                    <Button className=' capitalize px-8 py-6 bg-linear-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 shadow-lg shadow-green-500/50'>
+                    <Button
+                        onClick={() => redirect("/project")}
+                        className=' capitalize px-8 py-6 bg-linear-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 shadow-lg shadow-green-500/50'
+                    >
                         <p>schedule a demo</p>
                     </Button>
-                    <Button className=' capitalize text-white px-8 py-6 border border-[rgb(255,255,255,0.3)] bg-[rgb(255,255,255,0.1)] hover:bg-[rgb(255,255,255,0.2)]'>
+                    <Button
+                        onClick={() => redirect("/project")}
+                        className=' capitalize text-white px-8 py-6 border border-[rgb(255,255,255,0.3)] bg-[rgb(255,255,255,0.1)] hover:bg-[rgb(255,255,255,0.2)]'
+                    >
                         <p>contact sales</p>
                     </Button>
                 </div>

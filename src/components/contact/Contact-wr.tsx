@@ -179,10 +179,16 @@ function ContactWr() {
                     </p>
                 </div>
                 <div className='w-full flex flex-col md:flex-row gap-5 justify-center items-center h-fit'>
-                    <Button className=' capitalize px-8 py-6 bg-linear-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 shadow-lg shadow-green-500/50'>
+                    <Button
+                        onClick={() => redirect("/project")}
+                        className=' capitalize px-8 py-6 bg-linear-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 shadow-lg shadow-green-500/50'
+                    >
                         <p>start free trail</p>
                     </Button>
-                    <Button onClick={() => redirect("/pricing")} className=' capitalize text-white px-8 py-6 border border-[rgb(255,255,255,0.3)] bg-[rgb(255,255,255,0.1)] hover:bg-[rgb(255,255,255,0.2)]'>
+                    <Button
+                        onClick={() => redirect("/pricing")}
+                        className=' capitalize text-white px-8 py-6 border border-[rgb(255,255,255,0.3)] bg-[rgb(255,255,255,0.1)] hover:bg-[rgb(255,255,255,0.2)]'
+                    >
                         <p>View Pricing</p>
                     </Button>
                 </div>

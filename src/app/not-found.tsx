@@ -12,7 +12,7 @@ function globalNotFound() {
                 </div>
                 <div className=' z-10 flex flex-col justify-center items-center  relative -top-32'>
                     <h1 className='italic text-2xl font-semibold'>
-                        Sorry, This page does not found
+                        Sorry, This page is not found
                     </h1>
                     <Link
                         href={"/"}
