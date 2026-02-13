@@ -127,7 +127,7 @@ function PricingWr() {
                                     /month
                                 </p>
                             </div>
-                            <Button className={`${plan.buttonClass} w-full py-6 capitalize bg-transparent hover:bg-[rgb(255,255,255,0.2)] font-semibold  bg-linear-to-r`}>
+                            <Button onClick={() => redirect("/project")} className={`${plan.buttonClass} w-full py-6 capitalize bg-transparent hover:bg-[rgb(255,255,255,0.2)] font-semibold  bg-linear-to-r`}>
                                 <p>{plan.button}</p>
                                 <ArrowRight />
                             </Button>
