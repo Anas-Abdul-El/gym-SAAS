@@ -94,7 +94,9 @@ function SignUpWr() {
                     if (res?.error) {
                         setError(res.error)
                     }
-                    redirect("/auth/signIn")
+                    else {
+                        redirect("/auth/signIn")
+                    }
                 })
         })
 
@@ -195,6 +197,14 @@ function SignUpWr() {
                                 </FormItem>
                             )}
                         />
+
+                        {
+                            error && (
+                                <p className='py-2 px-4 w-full text-red-400 border border-destructive/20 from-destructive/10 to-destructive/30 font-bold rounded-sm bg-radial '>
+                                    {error}
+                                </p>
+                            )
+                        }
 
                         <Button
                             disabled={isPending}
