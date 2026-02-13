@@ -1,6 +1,7 @@
-
+"use client"
 import { ArrowRight, Dumbbell, Users, TrendingUp } from 'lucide-react';
 import Image from 'next/image';
+import { redirect } from 'next/navigation';
 
 type Feathers = {
     icon: React.ElementType,
@@ -50,11 +51,11 @@ export default function HomeWr() {
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4">
-                            <button className="group px-8 py-4 bg-linear-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 rounded-lg transition-all flex items-center justify-center gap-2 shadow-lg shadow-green-500/50">
+                            <button onClick={() => redirect("/project")} className="group px-8 py-4 bg-linear-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 rounded-lg transition-all flex items-center justify-center gap-2 shadow-lg shadow-green-500/50">
                                 Start Free Trial
                                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </button>
-                            <button className="px-8 py-4 border border-white/20 hover:bg-white/5 rounded-lg backdrop-blur-sm transition-all">
+                            <button onClick={() => redirect("/project")} className="px-8 py-4 border border-white/20 hover:bg-white/5 rounded-lg backdrop-blur-sm transition-all">
                                 Watch Demo
                             </button>
                         </div>
