@@ -1,9 +1,15 @@
 "use client"
-import { Button } from '@/components/ui/button'
+import Link from 'next/link'
+import { redirect } from 'next/navigation'
 import { useForm } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { type SignUpSchemaType, signUpSchema } from '../../../../schemas/signUp-schema'
 import { Input } from '@/components/ui/input'
+import { useState, useTransition } from 'react'
+import { Button } from '@/components/ui/button'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { githubSignIn } from '../../../../server-actions/signInToGithup'
+import { googleSignIn } from '../../../../server-actions/signInToGoogle'
+import { signUpAction } from '../../../../server-actions/signUpAction'
+import { type SignUpSchemaType, signUpSchema } from '../../../../schemas/signUp-schema'
 import {
     Mail,
     Lock,
@@ -22,12 +28,6 @@ import {
     FormLabel,
     FormMessage,
 } from '@/components/ui/form'
-import { ReactElement, useState, useTransition } from 'react'
-import Link from 'next/link'
-import { githubSignIn } from '../../../../server-actions/signInToGithup'
-import { googleSignIn } from '../../../../server-actions/signInToGoogle'
-import { signUpAction } from '../../../../server-actions/signUpAction'
-import { redirect } from 'next/navigation'
 
 type Input = {
     label: string,
@@ -186,11 +186,11 @@ function SignUpWr() {
                                         }
                                         <FormControl>
                                             <Input
+                                                {...field}
+                                                autoComplete='password'
                                                 placeholder='Enter your password'
                                                 type={view ? "text" : "password"}
-                                                autoComplete='password'
                                                 className='pl-12 pr-4 py-5 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50 transition-all'
-                                                {...field}
                                             />
                                         </FormControl>
                                     </div>
@@ -209,7 +209,8 @@ function SignUpWr() {
                         <Button
                             disabled={isPending}
                             type='submit'
-                            className='flex justify-center items-center py-5 bg-linear-to-r shadow-lg shadow-green-500/50 group from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 rounded-lg transition-all my-5'>
+                            className='flex justify-center items-center py-5 bg-linear-to-r shadow-lg shadow-green-500/50 group from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 rounded-lg transition-all my-5'
+                        >
                             <p className='text-xl'>Sign In</p>
                         </Button>
                     </form>
