@@ -14,7 +14,7 @@ export const signInAction = async (data: SignInSchemaType) => {
         await signIn("credentials", {
             email,
             password,
-            redirectTo: "/"
+            redirectTo: "/project"
         })
     } catch (error) {
         if (error instanceof AuthError) return { error: "Email or Password is Wrong" }

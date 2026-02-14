@@ -212,7 +212,6 @@ function SignUpWr() {
                             className='flex justify-center items-center py-5 bg-linear-to-r shadow-lg shadow-green-500/50 group from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 rounded-lg transition-all my-5'>
                             <p className='text-xl'>Sign In</p>
                         </Button>
-                        <p>{error}</p>
                     </form>
                 </Form>
 
