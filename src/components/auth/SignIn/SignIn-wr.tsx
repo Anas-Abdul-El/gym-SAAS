@@ -14,7 +14,6 @@ import {
     Lock,
     Eye,
     EyeOff,
-    ArrowRight,
     Chrome,
     Github
 } from 'lucide-react'
