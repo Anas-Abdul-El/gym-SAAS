@@ -32,9 +32,9 @@ const values = [
         icon: Target,
         title: 'Mission-Driven',
         description: 'We believe fitness should be accessible to everyone. Our mission is to empower gym owners with technology that helps them grow.',
-        color: 'from-green-500/20 to-emerald-500/20',
-        borderColor: 'border-green-500/20',
-        iconColor: 'text-green-400'
+        color: 'from-purple-500/20 to-violet-500/20',
+        borderColor: 'border-purple-500/20',
+        iconColor: 'text-purple-400'
     },
     {
         icon: Heart,
@@ -56,9 +56,9 @@ const values = [
         icon: Shield,
         title: 'Trust & Security',
         description: 'Your data is protected with enterprise-grade security. We take privacy seriously and comply with all regulations.',
-        color: 'from-green-500/20 to-emerald-500/20',
-        borderColor: 'border-green-500/20',
-        iconColor: 'text-green-400'
+        color: 'from-purple-500/20 to-violet-500/20',
+        borderColor: 'border-purple-500/20',
+        iconColor: 'text-purple-400'
     }
 ];
 
@@ -89,14 +89,14 @@ function AboutWr() {
     return (
         <div className='w-full h-fit flex flex-col justify-end p-6 space-y-20 lg:w-8/10 mx-auto'>
             <div className='w-full h-90 flex flex-col items-center space-y-6 mt-23 mb-170 sm:mb-80'>
-                <div className="h-fit w-fit inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 backdrop-blur-sm">
-                    <Users className="w-4 h-4 text-green-400" />
-                    <span className="text-sm text-green-300">Our Story</span>
+                <div className="h-fit w-fit inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 backdrop-blur-sm">
+                    <Users className="w-4 h-4 text-purple-400" />
+                    <span className="text-sm text-purple-300">Our Story</span>
                 </div>
                 <div className='text-center h-fit w-8/10'>
                     <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white">
                         Empowering Fitness
-                        <span className="block bg-linear-to-r from-green-400 via-emerald-400 to-teal-400 bg-clip-text text-transparent"> Around the World</span>
+                        <span className="block bg-linear-to-r from-purple-400 via-violet-400 to-indigo-400 bg-clip-text text-transparent"> Around the World</span>
                     </h1>
                 </div>
                 <div className='w-9/10'>
@@ -135,8 +135,8 @@ function AboutWr() {
                         width={500}
                         className='w-full h-full rounded-2xl'
                     />
-                    <div className="h-fit w-fit inline-flex items-center gap-2 p-4 px-6 rounded-2xl bg-green-500/10 border border-green-500/20 backdrop-blur-sm relative -top-10 -left-12">
-                        <Award size={30} className=" text-green-400" />
+                    <div className="h-fit w-fit inline-flex items-center gap-2 p-4 px-6 rounded-2xl bg-purple-500/10 border border-purple-500/20 backdrop-blur-sm relative -top-10 -left-12">
+                        <Award size={30} className=" text-purple-400" />
                         <div className='flex flex-col'>
                             <span className="text-sm text-white font-semibold">Award Winning</span>
                             <p className='text-gray-400 text-sm'>Best SaaS 2024</p>
@@ -182,20 +182,20 @@ function AboutWr() {
                             />
                             <div className='w-full h-fit flex text-center flex-col space-y-1'>
                                 <h3 className='text-white text-2xl font-semibold'>{ele.name}</h3>
-                                <p className='text-green-400'>{ele.role}</p>
+                                <p className='text-purple-400'>{ele.role}</p>
                             </div>
                         </div>
                     ))
                 }
             </div>
-            <div className='bg-linear-to-r from-green-500/20 to-emerald-500/20 w-full rounded-2xl flex flex-col justify-center items-center text-center p-20 my-30 space-y-8  mx-auto'>
+            <div className='bg-linear-to-r from-purple-500/20 to-violet-500/20 w-full rounded-2xl flex flex-col justify-center items-center text-center p-20 my-30 space-y-8  mx-auto'>
                 <div className='w-full flex flex-col space-y-5'>
                     <h1 className=' capitalize text-white font-bold text-4xl md:text-5xl lg:6xl '>Join Us on Our Mission</h1>
                     <p className='text-gray-400'>Be part of the fitness revolution. Whether you're a gym owner or looking to join our team, we'd love to hear from you.</p>
                 </div>
                 <div className='w-full flex flex-col md:flex-row gap-5 justify-center items-center h-fit'>
                     <Button onClick={() => redirect("/project")}
-                        className=' capitalize px-8 py-6 bg-linear-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 shadow-lg shadow-green-500/50'
+                        className=' capitalize px-8 py-6 bg-linear-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 shadow-lg shadow-purple-500/50'
                     >
                         <p>start free trail</p>
                     </Button>

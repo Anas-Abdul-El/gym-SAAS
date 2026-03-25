@@ -115,7 +115,7 @@ function ContactForm() {
                             </div>
                         ))
                     }
-                    <Button type="submit" className=" py-8 bg-linear-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 rounded-lg transition-all flex items-center justify-center gap-2 shadow-lg shadow-green-500/50 group">
+                    <Button type="submit" className=" py-8 bg-linear-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 rounded-lg transition-all flex items-center justify-center gap-2 shadow-lg shadow-purple-500/50 group">
                         <p className=" capitalize ">send message</p>
                         <Send className="group-hover:-translate-y-1 group-hover:translate-x-1 duration-300 transition-all" />
                     </Button>

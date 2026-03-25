@@ -155,7 +155,7 @@ function SignUpWr() {
                                                         placeholder={ele.placeholder}
                                                         type={ele.type}
                                                         autoComplete='password'
-                                                        className='pl-12 pr-4 py-5 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50 transition-all'
+                                                        className='pl-12 pr-4 py-5 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500/50 transition-all'
                                                         {...field}
                                                     />
                                                 </FormControl>
@@ -190,7 +190,7 @@ function SignUpWr() {
                                                 autoComplete='password'
                                                 placeholder='Enter your password'
                                                 type={view ? "text" : "password"}
-                                                className='pl-12 pr-4 py-5 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50 transition-all'
+                                                className='pl-12 pr-4 py-5 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500/50 transition-all'
                                             />
                                         </FormControl>
                                     </div>
@@ -209,7 +209,7 @@ function SignUpWr() {
                         <Button
                             disabled={isPending}
                             type='submit'
-                            className='flex justify-center items-center py-5 bg-linear-to-r shadow-lg shadow-green-500/50 group from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 rounded-lg transition-all my-5'
+                            className='flex justify-center items-center py-5 bg-linear-to-r shadow-lg shadow-purple-500/50 group from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 rounded-lg transition-all my-5'
                         >
                             <p className='text-xl'>Sign In</p>
                         </Button>
@@ -218,7 +218,7 @@ function SignUpWr() {
 
                 <div className='sm:w-4/5 mx-auto flex space-x-1'>
                     <p className='text-gray-400'>Don't have an account? </p>
-                    <Link className='text-green-400 font-semibold' href={"/auth/signIn"}>Sign up for free</Link>
+                    <Link className='text-purple-400 font-semibold' href={"/auth/signIn"}>Sign up for free</Link>
                 </div>
             </div>
         </div>

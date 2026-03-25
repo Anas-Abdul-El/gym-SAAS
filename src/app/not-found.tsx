@@ -8,7 +8,7 @@ function globalNotFound() {
                 <div className='text-[21rem] font-bold '>
                     <span className='text-blue-400 relative left-11 italic'>4</span>
                     <span className='text-destructive '>0</span>
-                    <span className='text-green-400 relative -left-20 italic'>4</span>
+                    <span className='text-purple-400 relative -left-20 italic'>4</span>
                 </div>
                 <div className=' z-10 flex flex-col justify-center items-center  relative -top-32'>
                     <h1 className='italic text-2xl font-semibold'>

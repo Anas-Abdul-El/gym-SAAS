@@ -55,7 +55,7 @@ function Nav({
         <>
             <nav className='fixed top-0 left-0 w-screen h-15 bg-gray-950/50 border-b border-white/10 backdrop-blur-xl flex justify-between items-center z-50 px-10  lg:px-30'>
                 <div className='flex space-x-2 md:w-35'>
-                    <Dumbbell size={28} className='text-green-400' />
+                    <Dumbbell size={28} className='text-purple-400' />
                     <Link href={"/"} className=' capitalize text-white text-xl font-semibold'>fitFlow pro</Link>
                 </div>
                 <div className='hidden sm:block'>
@@ -68,7 +68,7 @@ function Nav({
                     </ul>
                 </div>
                 <div className=' items-center space-x-2 cursor-pointer hover:text-white transition hidden sm:flex md:w-35'>
-                    <LogInIcon className='text-green-400' size={20} />
+                    <LogInIcon className='text-purple-400' size={20} />
                     {
                         isUserLogin ? (
                             <p onClick={SignOutAction} className='text-white/80 capitalize'>Sign out</p>

@@ -34,14 +34,14 @@ export default function HomeWr() {
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     {/* Left Column - Content */}
                     <div className="space-y-8">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 backdrop-blur-sm">
-                            <Dumbbell className="w-4 h-4 text-green-400" />
-                            <span className="text-sm text-green-300">All-in-One Gym Management</span>
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 backdrop-blur-sm">
+                            <Dumbbell className="w-4 h-4 text-purple-400" />
+                            <span className="text-sm text-purple-300">All-in-One Gym Management</span>
                         </div>
 
                         <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white">
                             Transform Your
-                            <span className="block bg-linear-to-r from-green-400 via-emerald-400 to-teal-400 bg-clip-text text-transparent">
+                            <span className="block bg-linear-to-r from-purple-400 via-violet-400 to-indigo-400 bg-clip-text text-transparent">
                                 Fitness Business
                             </span>
                         </h1>
@@ -51,7 +51,7 @@ export default function HomeWr() {
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4">
-                            <button onClick={() => redirect("/project")} className="group px-8 py-4 bg-linear-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 rounded-lg transition-all flex items-center justify-center gap-2 shadow-lg shadow-green-500/50">
+                            <button onClick={() => redirect("/project")} className="group px-8 py-4 bg-linear-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 rounded-lg transition-all flex items-center justify-center gap-2 shadow-lg shadow-purple-500/50">
                                 Start Free Trial
                                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </button>
@@ -93,16 +93,16 @@ export default function HomeWr() {
                         </div>
 
                         {/* Floating elements */}
-                        <div className="absolute -top-6 -right-6 px-6 py-3 rounded-xl bg-green-500/10 backdrop-blur-xl border border-green-500/20 shadow-xl">
+                        <div className="absolute -top-6 -right-6 px-6 py-3 rounded-xl bg-purple-500/10 backdrop-blur-xl border border-purple-500/20 shadow-xl">
                             <div className="flex items-center gap-2">
-                                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                                <span className="text-sm text-green-400">128 Active Now</span>
+                                <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></div>
+                                <span className="text-sm text-purple-400">128 Active Now</span>
                             </div>
                         </div>
 
-                        <div className="absolute -bottom-6 -left-6 px-6 py-4 rounded-xl bg-green-500/10 backdrop-blur-xl border border-green-500/20 shadow-xl">
+                        <div className="absolute -bottom-6 -left-6 px-6 py-4 rounded-xl bg-purple-500/10 backdrop-blur-xl border border-purple-500/20 shadow-xl">
                             <div className="flex items-center gap-3">
-                                <TrendingUp className="w-6 h-6 text-green-400" />
+                                <TrendingUp className="w-6 h-6 text-purple-400" />
                                 <div>
                                     <div className="text-sm font-semibold text-white">Revenue Growth</div>
                                     <div className="text-xs text-gray-400">+34% this month</div>
@@ -122,7 +122,7 @@ export default function HomeWr() {
                                 key={index}
                                 className="p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-white/10 transition-all group"
                             >
-                                <feature.icon className="w-10 h-10 text-green-400 mb-4 group-hover:scale-110 transition-transform" />
+                                <feature.icon className="w-10 h-10 text-purple-400 mb-4 group-hover:scale-110 transition-transform" />
                                 <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
                                 <p className="text-gray-400">{feature.description}</p>
                             </div>
