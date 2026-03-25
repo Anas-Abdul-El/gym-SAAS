@@ -14,6 +14,11 @@ type Links = {
 }
 
 const links: Links[] = [
+        {
+        name: "Home",
+        href: "/",
+        id: 0
+    },
     {
         name: "Features",
         href: "/features",
